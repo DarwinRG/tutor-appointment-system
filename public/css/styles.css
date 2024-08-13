@@ -1,0 +1,122 @@
+label{
+    font-weight: bold;
+}
+
+input{
+    width:20%;
+}
+
+.btn_red{
+    background: #d21515;
+    color: white;
+}
+
+.btn_green{
+    background: #58a518;
+    color: white;
+}
+
+.center .info_con{
+    line-height: 50px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info_width{
+   width: 350px;
+}
+
+.info_width_error{
+    width: 520px;
+ }
+
+ .width_info_update{
+    width: 375px;
+}
+
+.card-body .mybtn{
+    padding: 10px 39px;
+    border-radius: 31px;
+    width: 230px;
+}
+
+.btn_delete_edit{
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+    
+.card-body .mybtn{
+    background: #58a518; 
+    padding: 14px 39px;
+    border-radius: 31px;
+    color: white;
+    width: 230px;
+}
+
+.mybtn.mybtn_update.color_btn_back{
+    background: #336e02;
+    color: white;
+ }
+
+.card-body .mybtn.mybtn_update {
+    width: 235px;
+    margin-bottom: 10px;
+}
+
+.select_time{
+    padding:8px 12px;
+    width:233px;
+    text-align:center;  
+}
+
+input[type="date"] {
+    padding-left: 75px;
+  }
+
+ .text_style_welcome{
+    font-size:25px;
+    font-weight: bold;
+  }
+
+.text-style{
+  font-size:20px;
+}
+
+.card-body .text_align_c{
+    text-align: center;
+}
+
+.card .card-body .text_align_r{
+    text-align:right;
+}
+
+.leading-tight.text_align_r{
+    text-align:right;
+}
+
+.block.h-9.w-auto.fill-current.text-gray-800{
+    display: none;
+}
