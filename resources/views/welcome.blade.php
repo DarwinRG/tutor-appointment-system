@@ -1,34 +1,70 @@
 <!-- resources/views/welcome.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
+  <title>System na hindi pa tapos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!--Font Awesome-->
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-thin.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-solid.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-regular.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-light.css" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <style>
     .main-section {
       height: 100vh;
-      color: black; 
+      color: black;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
     }
+
     .about-section,
     .contact-section {
       padding: 50px 0;
     }
+
+    .team-members ul {
+      display: inline-block;
+      text-align: left;
+      font-size: 25px;
+      list-style-type: none;
+    }
+
+    .team-members ul li {
+      display: inline-block;
+    }
+    .team-members img {
+      width: 250px;
+      height: 250px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+
+    footer {
+      margin-top: auto;
+    }
   </style>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Tutor Appointment System</a>
+      <a class="navbar-brand" href="#">LessonLink</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,7 +75,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
@@ -47,58 +83,166 @@
         </ul>
         <ul class="navbar-nav">
           @if (Route::has('login'))
-            @auth
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('view_page') }}">Dashboard</a>
-              </li>
-            @else
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">Log in</a>
-              </li>
-              @if (Route::has('register'))
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}">Register</a>
-                </li>
-              @endif
-            @endauth
-          @endif
+        @auth
+      <li class="nav-item">
+      <a class="nav-link" href="{{ route('view_page') }}">Dashboard</a>
+      </li>
+    @else
+    <li class="nav-item">
+    <a class="nav-link" href="{{ route('login') }}">Log in</a>
+    </li>
+    @if (Route::has('register'))
+    <li class="nav-item">
+    <a class="nav-link" href="{{ route('register') }}">Register</a>
+    </li>
+  @endif
+  @endauth
+      @endif
         </ul>
       </div>
     </div>
   </nav>
   <div class="main-section">
-    <div>
-      <h1>Welcome to Tutor Appointment System</h1>
-      <p>Your one-stop solution for booking appointments with tutors.</p>
+    <div class="text-center">
+      <img src="{{ asset('img/logo.png') }}" alt="logo text" class=" img-fluid" style="width: 200px">
+      <h1>Welcome to Lesson Link</h1>
+      <p>Supporting Students , One Link At a Time.</p>
     </div>
   </div>
-  <div class="container about-section">
-    <h2>About Our System</h2>
-    <p>
-      The Tutor Appointment System is designed to simplify the process of booking appointments with tutors.
-      Our system offers a user-friendly interface, allowing students to easily find and book sessions with their
-      preferred tutors.
-    </p>
-    <p>
-      Key Features:
-    <ul>
-      <li>Easy appointment booking</li>
-      <li>Real-time availability of tutors</li>
-      <li>Automated reminders and notifications</li>
-    </ul>
-    </p>
-    <p>
-      Whether you need help with a specific subject or want to improve your overall academic performance, our system
-      connects you with experienced tutors who can help you achieve your goals.
-    </p>
-  </div>
-  <div class="container contact-section">
-    <h2>Contact Us</h2>
-    @if (session('success'))
-      <div class="alert alert-success">
-        {{ session('success') }}
+  <div class="text-center container about-section" id="about">
+    <h2>ABOUT US</h2>
+    <div class="container text-center">
+      <div class="row row-cols-2">
+        <div class="col">
+          <h4> MISSION </h4>
+          <p> Our Mission at Lesson Link is to provide quality educational support for students.</p>
+        </div>
+        <div class="col">
+          <h4> VISION </h4>
+          <p> Lesson Link aims to guide students in their educational journey.</p>
+        </div>
+        <div class="col">
+          <h4> WE OFFER </h4>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Tutors specializing in various subjects
+              <span class="badge bg-primary rounded-pill"> </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Online booking
+              <span class="badge bg-primary rounded-pill"> </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Flexible scheduling with partnered tutors
+              <span class="badge bg-primary rounded-pill"> </span>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cancel appointments anytime
+              <span class="badge bg-primary rounded-pill"> </span>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4> TEACHING STUDENTS FROM</h4>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              KINDERGARTEN
+              <span class="badge bg-primary rounded-pill"> </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              ELEMENTARY
+              <span class="badge bg-primary rounded-pill"> </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              HIGH-SCHOOL
+              <span class="badge bg-primary rounded-pill"> </span>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              COLLEGE
+              <span class="badge bg-primary rounded-pill"> </span>
+            </li>
+          </ul>
+
+        </div>
       </div>
-    @endif
+    </div>
+  </div>
+  <div class="container text-center image-center team-members">
+    <h4>TEAM MEMBERS </h4>
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+            <img src="{{ asset('img/logo.png') }}" />
+            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
+            <ul>
+            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
+            <li><a class="fa-brands fa-github" href="#"></a></li>
+            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+          </ul>
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#arrow-right"></use>
+          </svg></a>
+        </div>
+        <div class="col-xs-2">
+            <img src="{{ asset('img/logo.png') }}" />
+            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
+            <ul>
+            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
+            <li><a class="fa-brands fa-github" href="#"></a></li>
+            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+          </ul>
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#arrow-right"></use>
+          </svg></a>
+
+        </div>
+        <div class="col-xs-2">
+            <img src="{{ asset('img/logo.png') }}" />
+            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
+            <ul>
+            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
+            <li><a class="fa-brands fa-github" href="#"></a></li>
+            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+          </ul>
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#arrow-right"></use>
+          </svg></a>
+
+        </div>
+        <div class="col-xs-2">
+            <img src="{{ asset('img/logo.png') }}">
+            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
+            <ul>
+            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
+            <li><a class="fa-brands fa-github" href="#"></a></li>
+            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+          </ul>
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#arrow-right"></use>
+          </svg></a>
+
+        </div>
+        <div class="col-xs-2">
+            <img src="{{ asset('img/logo.png') }}">
+            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
+            <ul>
+            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
+            <li><a class="fa-brands fa-github" href="#"></a></li>
+            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+          </ul>
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#arrow-right"></use>
+          </svg></a>
+
+        </div>
+    </div>
+</div>
+    <div class="container contact-section">
+      <h2>Contact Us</h2>
+      @if (session('success'))
+      <div class="alert alert-success">
+      {{ session('success') }}
+      </div>
+    </div>
+  @endif
     <form method="POST" action="{{ route('contact.submit') }}">
       @csrf
       <div class="mb-3">
@@ -118,8 +262,9 @@
   </div>
   <footer class="bg-light text-center text-lg-start mt-5">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      Made with <span style="color: red;">&hearts;</span> by DarwinRG & Team
+      Made with <i class="fa-solid fa-heart fa-beat" style=""></i> by DarwinRG & Team
     </div>
   </footer>
 </body>
+
 </html>
