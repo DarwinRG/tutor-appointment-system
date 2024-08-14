@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <title>Create Appointment</title>
 </head>
+
 <body>
     <x-app-layout>
         <x-slot name="header">
@@ -21,18 +23,18 @@
                 </div>
             @endif
             @if(session('error'))
-            <div class="center">
-                <div class="btn_red info_con info_width_error">
-                    {{ session('error') }}
+                <div class="center">
+                    <div class="btn_red info_con info_width_error">
+                        {{ session('error') }}
+                    </div>
                 </div>
-            </div>
             @endif
             @if(session('error_delete'))
-            <div class="center">
-                <div class="btn_red info_con info_width">
-                    {{ session('error_delete') }}
+                <div class="center">
+                    <div class="btn_red info_con info_width">
+                        {{ session('error_delete') }}
+                    </div>
                 </div>
-            </div>
             @endif
         </x-slot>
         <div class="py-12">
@@ -42,55 +44,87 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
-                                    <div class="card" style="text-align:center;">  
-                                        <div class="card-body" >
+                                    <div class="card" style="text-align:center;">
+                                        <div class="card-body">
                                             <form method="POST" action="">
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="date">Date:</label><br>
-                                                    <input type="date"  name="date" id="date" class="form-control" required>
+                                                    <input type="date" name="date" id="date" class="form-control"
+                                                        required>
                                                 </div><br>
-                                            
+
                                                 <div class="form-group">
                                                     <label for="time">Time:</label><br>
-                                                    <select name="time" id="time" class="form-control select_time" required>>
-                                                        <?php for($i=9; $i<=21; $i++) {   
-                                                           $timeFormat = sprintf('%02d:00', $i);?>
-                                                        <option value="<?php echo $timeFormat; ?>"><?php echo $timeFormat; ?></option>
-                                                       <?php }?>
+                                                    <select name="time" id="time" class="form-control select_time"
+                                                        required>>
+                                                        <?php for ($i = 9; $i <= 21; $i++) {
+    $timeFormat = sprintf('%02d:00', $i);?>
+                                                        <option value="<?php    echo $timeFormat; ?>">
+                                                            <?php    echo $timeFormat; ?>
+                                                        </option>
+                                                        <?php }?>
                                                     </select>
                                                 </div><br>
-                                         
-                                                <button name="btn_sub" type="submit" class="btn btn-primary mybtn btn_green">Create Appointment</button>
+
+                                                <!-- Subject Field -->
+                                                <div class="form-group">
+                                                    <label for="subject">Subject</label><br>
+                                                    <select name="subject" id="subject" class="form-control">
+                                                        <option value="Math">Math</option>
+                                                        <option value="English">English</option>
+                                                        <option value="Science">Science</option>
+                                                        <option value="Programming">Programming</option>
+                                                        <option value="History">History</option>
+                                                    </select>
+                                                </div><br>
+
+                                                <!-- Tutor Field -->
+                                                <div class="form-group">
+                                                    <label for="tutor">Tutor</label><br>
+                                                    <select name="tutor" id="tutor" class="form-control">
+                                                        <option value="Darwin">Darwin</option>
+                                                        <option value="Derek">Derek</option>
+                                                        <option value="Mark">Mark</option>
+                                                        <option value="Rich">Rich</option>
+                                                        <option value="Ken">Ken</option>
+                                                    </select>
+                                                </div><br>
+
+                                                <button name="btn_sub" type="submit"
+                                                    class="btn btn-primary mybtn btn_green">Create Appointment</button>
                                             </form>
                                             <table>
                                                 <thead>
                                                     <tr>
-                                                        <th>Appointment ID</th>
+                                                        <th>Subject</th>
+                                                        <th>Tutor</th>
                                                         <th>E-mail</th>
                                                         <th>Date</th>
                                                         <th>Time</th>
-                                                        <th>Options</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                            
-                                                  @php $counter = ($appointments->currentPage() - 1) * $appointments->perPage() + 1 @endphp
+
                                                     @foreach ($appointments as $appointment)
                                                         <tr>
-                                                            <td>{{ $counter++}}</td>
+                                                            <td>{{ $appointment->subject }}</td>
+                                                            <td>{{ $appointment->tutor }}</td>
                                                             <td>{{ $userEmail}}</td>
                                                             <td>{{ $appointment->date->format('d/m/Y') }}</td>
                                                             <td>{{ $appointment->time}}</td>
-                                                            <td>   
-                                                                <a href="{{ route('update', $appointment) }}"><button class="btn_delete_edit btn_green">Edit</button></a>                                                   
-                                                                <a href="{{route('delete',$appointment)}}"><button name="" class="btn_delete_edit btn_red">Delete</button></a>              
+                                                            <td>
+                                                                <a href="{{ route('update', $appointment) }}"><button
+                                                                        class="btn_delete_edit btn_green">Edit</button></a>
+                                                                <a href="{{route('delete', $appointment)}}"><button name=""
+                                                                        class="btn_delete_edit btn_red">Delete</button></a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
-                                           <br>{{ $appointments->links() }}
+                                            <br>{{ $appointments->links() }}
                                         </div>
                                     </div>
                                 </div>
@@ -100,6 +134,7 @@
                 </div>
             </div>
         </div>
-    </x-app-layout>  
+    </x-app-layout>
 </body>
+
 </html>
