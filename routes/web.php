@@ -3,6 +3,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\OTPController;
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
@@ -10,7 +11,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::post('otp/verify', [OTPController::class, 'verify']);
+Route::post('/otp/send', [OTPController::class, 'send'])->name('otp.send');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
