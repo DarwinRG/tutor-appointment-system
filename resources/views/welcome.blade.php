@@ -38,22 +38,19 @@
     }
 
     .team-members ul {
-      display: inline-block;
-      text-align: left;
-      font-size: 25px;
+
       list-style-type: none;
     }
 
-    .team-members ul li {
-      display: inline-block;
-    }
     .team-members img {
-      width: 250px;
-      height: 250px;
-      display: inline-block;
-      margin-right: 10px;
+      max-width: 200px;
+      height: auto;
+      border-radius: 50%;
     }
 
+    #contact {
+      border: 2px solid #a1a1a1;
+    }
 
     footer {
       margin-top: auto;
@@ -62,9 +59,12 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d1e8ff;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">LessonLink</a>
+      <a class="navbar-brand" href="#">
+        <img src="{{ asset('img/logo.png') }}" alt="logo text" class=" img-fluid" style="width: 35px">
+        LessonLink
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,7 +78,7 @@
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -126,18 +126,18 @@
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Tutors specializing in various subjects
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Online booking
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Flexible scheduling with partnered tutors
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Cancel appointments anytime
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             </li>
           </ul>
         </div>
@@ -146,18 +146,18 @@
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               KINDERGARTEN
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               ELEMENTARY
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               HIGH-SCHOOL
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               COLLEGE
-              <span class="badge bg-primary rounded-pill"> </span>
+              <span class="badge bg-dark rounded-pill"> </span>
             </li>
           </ul>
 
@@ -166,76 +166,65 @@
     </div>
   </div>
   <div class="container text-center image-center team-members">
-    <h4>TEAM MEMBERS </h4>
+    <h2>TEAM MEMBERS </h2>
     <div class="container">
-    <div class="row">
-        <div class="col-xs-2">
-            <img src="{{ asset('img/logo.png') }}" />
-            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
-            <ul>
-            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
-            <li><a class="fa-brands fa-github" href="#"></a></li>
-            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+      <div class="row">
+        <div class="col member">
+          <img src="{{ asset('img/darwin.png') }}" />
+          <p class="h5">Darwin Guillermo</p>
+          <p class="h6">Scrum Master</p>
+          <ul class="list-unstyled">
+            <li class="d-inline"><a class="fa-brands fa-facebook fa-lg" href="https://web.facebook.com/YourCosmicGuy"></a>
+            </li>
+            <li class="d-inline"><a class="fa-brands fa-github fa-lg" href="#"></a></li>
+            <li class="d-inline"><a class="fa-duotone fa-solid fa-globe fa-lg" href="#"></a></li>
           </ul>
-          <svg class="bi" aria-hidden="true">
-            <use xlink:href="#arrow-right"></use>
-          </svg></a>
         </div>
-        <div class="col-xs-2">
-            <img src="{{ asset('img/logo.png') }}" />
-            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
-            <ul>
-            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
-            <li><a class="fa-brands fa-github" href="#"></a></li>
-            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+        <div class="col member">
+          <img src="{{ asset('img/derek.png') }}" />
+          <p class="h5">Derek Madronio</p>
+          <p class="h6">Scrum Team</p>
+          <ul class="list-unstyled">
+            <li class="d-inline"><a class="fa-brands fa-facebook fa-lg" href="https://web.facebook.com/murphhi"></a></li>
+            <li class="d-inline"><a class="fa-brands fa-github fa-lg" href="#"></a></li>
+            <li class="d-inline"><a class="fa-duotone fa-solid fa-globe fa-lg" href="#"></a></li>
           </ul>
-          <svg class="bi" aria-hidden="true">
-            <use xlink:href="#arrow-right"></use>
-          </svg></a>
-
         </div>
-        <div class="col-xs-2">
-            <img src="{{ asset('img/logo.png') }}" />
-            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
-            <ul>
-            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
-            <li><a class="fa-brands fa-github" href="#"></a></li>
-            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+        <div class="col member">
+          <img src="{{ asset('img/mark.png') }}" />
+          <p class="h5">Mark Clarence Olivar</p>
+          <p class="h6">Scrum Team</p>
+          <ul class="list-unstyled">
+            <li class="d-inline"><a class="fa-brands fa-facebook fa-lg" href="https://web.facebook.com/Marikiannn"></a></li>
+            <li class="d-inline"><a class="fa-brands fa-github fa-lg" href="#"></a></li>
+            <li class="d-inline"><a class="fa-duotone fa-solid fa-globe fa-lg" href="#"></a></li>
           </ul>
-          <svg class="bi" aria-hidden="true">
-            <use xlink:href="#arrow-right"></use>
-          </svg></a>
-
         </div>
-        <div class="col-xs-2">
-            <img src="{{ asset('img/logo.png') }}">
-            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
-            <ul>
-            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
-            <li><a class="fa-brands fa-github" href="#"></a></li>
-            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+        <div class="col member">
+          <img src="{{ asset('img/rich.png') }}" />
+          <p class="h5">Rich Harry Tisel</p>
+          <p class="h6">Scrum Team</p>
+          <ul class="list-unstyled">
+            <li class="d-inline"><a class="fa-brands fa-facebook fa-lg"
+                href="https://web.facebook.com/profile.php?id=100018398522848"></a></li>
+            <li class="d-inline"><a class="fa-brands fa-github fa-lg" href="https://github.com/SolWIND3"></a></li>
+            <li class="d-inline"><a class="fa-duotone fa-solid fa-globe fa-lg" href="#"></a></li>
           </ul>
-          <svg class="bi" aria-hidden="true">
-            <use xlink:href="#arrow-right"></use>
-          </svg></a>
-
         </div>
-        <div class="col-xs-2">
-            <img src="{{ asset('img/logo.png') }}">
-            <div class="p-3">Madronio <br>Derek Emmanuel M.</div>
-            <ul>
-            <li><a class="fa-brands fa-facebook" href="https://web.facebook.com/murphhi"></a></li>
-            <li><a class="fa-brands fa-github" href="#"></a></li>
-            <li><a class="fa-duotone fa-solid fa-globe" href="#"></a></li>
+        <div class="col member">
+          <img src="{{ asset('img/logo.png') }}" />
+          <p class="h5">Ken Charles Segundo</p>
+          <p class="h6">Scrum Team</p>
+          <ul class="list-unstyled">
+            <li class="d-inline"><a class="fa-brands fa-facebook fa-lg" href="https://web.facebook.com/kleinnsama"></a></li>
+            <li class="d-inline"><a class="fa-brands fa-github fa-lg" href="#"></a></li>
+            <li class="d-inline"><a class="fa-duotone fa-solid fa-globe fa-lg"
+                href="https://www.youtube.com/watch?v=5YVotus8ryk"></a></li>
           </ul>
-          <svg class="bi" aria-hidden="true">
-            <use xlink:href="#arrow-right"></use>
-          </svg></a>
-
         </div>
+      </div>
     </div>
-</div>
-    <div class="container contact-section">
+    <div class="container contact-section" id="contact">
       <h2>Contact Us</h2>
       @if (session('success'))
       <div class="alert alert-success">
