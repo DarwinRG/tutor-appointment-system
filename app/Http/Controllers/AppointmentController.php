@@ -19,16 +19,29 @@ class AppointmentController extends Controller
 
     public function viewPageFunction()
     {
-        // Count the total number of appointments for the user
-        $totalAppointments = Appointment::where('user_id', $this->userId)->count();
+        // Check if the user is an admin
+        $isAdmin = DB::table('users')->where('id', $this->userId)->value('user_type') === 'a';
+
+        if ($isAdmin) {
+            // Fetch all appointments if the user is an admin
+            $totalAppointments = Appointment::count();
+            $appointments = Appointment::select('subject', 'tutor', 'date', 'time', 'user_id')
+                ->paginate(10);
+        } else {
+            // Fetch only the appointments for the authenticated user
+            $totalAppointments = Appointment::where('user_id', $this->userId)->count();
+            $appointments = Appointment::where('user_id', $this->userId)
+                ->select('subject', 'tutor', 'date', 'time')
+                ->paginate(10);
+        }
+
         $userName = DB::table('users')->where('id', $this->userId)->value('name');
-        $appointments = Appointment::where('user_id', $this->userId)
-            ->select('subject', 'tutor', 'date', 'time',)
-            ->paginate(10);
+
         return view('dashboard', [
             'totalAppointments' => $totalAppointments,
             'appointments' => $appointments,
             'userName' => $userName,
+            'isAdmin' => $isAdmin,
         ]);
     }
 

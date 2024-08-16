@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System na hindi pa tapos</title>
+  <title>LessonLink</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!--Font Awesome-->
@@ -35,6 +35,12 @@
     .about-section,
     .contact-section {
       padding: 50px 0;
+      margin-top: 100px ;
+      margin-bottom: 100px;
+    }
+    
+    .about-title, .team-title {
+      margin-bottom: 50px;
     }
 
     .team-members ul {
@@ -110,7 +116,7 @@
     </div>
   </div>
   <div class="text-center container about-section" id="about">
-    <h2>ABOUT US</h2>
+    <h2 class="about-title">ABOUT US</h2>
     <div class="container text-center">
       <div class="row row-cols-2">
         <div class="col">
@@ -166,7 +172,7 @@
     </div>
   </div>
   <div class="container text-center image-center team-members">
-    <h2>TEAM MEMBERS </h2>
+    <h2 class="team-title">TEAM MEMBERS </h2>
     <div class="container">
       <div class="row">
         <div class="col member">
@@ -212,7 +218,7 @@
           </ul>
         </div>
         <div class="col member">
-          <img src="{{ asset('img/logo.png') }}" />
+          <img src="{{ asset('img/ken.png') }}" />
           <p class="h5">Ken Charles Segundo</p>
           <p class="h6">Scrum Team</p>
           <ul class="list-unstyled">

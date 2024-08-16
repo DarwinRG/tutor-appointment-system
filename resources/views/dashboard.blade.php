@@ -45,6 +45,9 @@
                                                         <th>Tutor</th>
                                                         <th>Date</th>
                                                         <th>Time</th>
+                                                        @if ($isAdmin)
+                                                            <th>User</th>
+                                                        @endif
 
                                                     </tr>
                                                 </thead>
@@ -57,6 +60,10 @@
                                                             <td>{{ $appointment->tutor }}</td>
                                                             <td>{{ $appointment->date->format('d/m/Y') }}</td>
                                                             <td>{{ $appointment->time}}</td>
+                                                            @if ($isAdmin)
+                                                                <td>{{ DB::table('users')->where('id', $appointment->user_id)->value('name') }}
+                                                                </td>
+                                                            @endif
 
                                                         </tr>
                                                     @endforeach
