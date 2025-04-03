@@ -34,3 +34,6 @@ This repository is a Laravel-based tutor appointment system. It includes various
 - MySql
 - Twilio
 
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
